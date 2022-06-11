@@ -1,0 +1,4 @@
+*.tgz
+.*.swp
+Chart.lock
+requirements.lock
