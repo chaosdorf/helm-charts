@@ -6,12 +6,12 @@ data center infrastructure management (DCIM) tool.
 ## TL;DR
 
 ```shell
-$ helm repo add bootc https://charts.boo.tc
+$ helm repo add chaosdorf https://chaosdorf.github.io/helm-charts
 $ helm install netbox \
   --set postgresql.postgresqlPostgresPassword=[password1] \
   --set postgresql.postgresqlPassword=[password2] \
   --set redis.auth.password=[password3] \
-  bootc/netbox
+  chaosdorf/netbox
 ```
 
 ## Prerequisites
@@ -25,12 +25,12 @@ $ helm install netbox \
 To install the chart with the release name `my-release` and default configuration:
 
 ```shell
-$ helm repo add bootc https://charts.boo.tc
+$ helm repo add chaosdorf https://chaosdorf.github.io/helm-charts
 $ helm install my-release \
   --set postgresql.postgresqlPostgresPassword=[password1] \
   --set postgresql.postgresqlPassword=[password2] \
   --set redis.auth.password=[password3] \
-  bootc/netbox
+  chaosdorf/netbox
 ```
 
 The default configuration includes the required PostgreSQL and Redis database
@@ -313,7 +313,7 @@ The following table lists the configurable parameters for this chart and their d
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install` or provide a YAML file containing the values for the above parameters:
 
 ```shell
-$ helm install --name my-release bootc/netbox --values values.yaml
+$ helm install --name my-release chaosdorf/netbox --values values.yaml
 ```
 
 ## Using an Existing Secret
