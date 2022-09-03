@@ -1,7 +1,7 @@
 apiVersion: v2
 name: netbox
-version: 4.1.3
-appVersion: v3.2.4
+version: 4.1.4
+appVersion: v3.3.2
 description: IP address management (IPAM) and data center infrastructure management (DCIM) tool
 home: https://github.com/chaosdorf/helm-charts/tree/main/charts/netbox
 icon: https://raw.githubusercontent.com/netbox-community/netbox/develop/docs/netbox_logo.png
