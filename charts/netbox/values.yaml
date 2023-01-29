@@ -301,8 +301,11 @@ postgresql:
   # under externalDatabase
   enabled: true
 
-  postgresqlUsername: netbox
-  postgresqlDatabase: netbox
+  postgresqlUsername: postgres
+  postgresqlDatabase: postgres
+
+  service:
+    port: 5432
 
 ## External database settings
 # These are used if postgresql.enabled is false, and are ignored otherwise
@@ -313,7 +316,7 @@ externalDatabase:
   username: netbox
   password: ""
   existingSecretName: ""
-  existingSecretKey: postgresql-password
+  existingSecretKey: postgres-password
 
   # The following settings apply when using the bundled PostgreSQL chart, too:
   sslMode: prefer
