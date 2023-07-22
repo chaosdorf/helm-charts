@@ -4,6 +4,7 @@ on:
 
 jobs:
   renovate:
+    name: Dry Run
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,3 +15,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           RENOVATE_DRY_RUN: lookup
+          LOG_LEVEL: "debug"
