@@ -12,6 +12,7 @@ jobs:
       - name: Renovate Dry Run
         uses: renovatebot/github-action@v39.0.0
         with:
+          configurationFile: renovate.json
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           RENOVATE_DRY_RUN: lookup
