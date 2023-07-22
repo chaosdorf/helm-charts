@@ -15,5 +15,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           RENOVATE_DRY_RUN: lookup
+          RENOVATE_USERNAME: renovate-bot
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           LOG_LEVEL: "debug"
