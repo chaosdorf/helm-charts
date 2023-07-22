@@ -16,5 +16,6 @@ jobs:
         env:
           RENOVATE_DRY_RUN: lookup
           RENOVATE_USERNAME: renovate-bot
+          RENOVATE_GIT_AUTHOR: renovate bot <renovate@example.org>
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           LOG_LEVEL: "debug"
