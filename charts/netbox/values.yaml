@@ -301,8 +301,12 @@ postgresql:
   # under externalDatabase
   enabled: true
 
-  postgresqlUsername: netbox
-  postgresqlDatabase: netbox
+  service:
+    port: 5432
+
+  auth:
+    username: netbox
+    database: netbox
 
 ## External database settings
 # These are used if postgresql.enabled is false, and are ignored otherwise
