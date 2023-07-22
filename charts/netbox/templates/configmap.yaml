@@ -59,8 +59,8 @@ data:
     DATABASE:
       {{ if .Values.postgresql.enabled -}}
       HOST: {{ include "netbox.postgresql.fullname" . | quote }}
-      USER: {{ .Values.postgresql.postgresqlUsername | quote }}
-      NAME: {{ .Values.postgresql.postgresqlDatabase | quote }}
+      USER: {{ .Values.postgresql.auth.username| quote }}
+      NAME: {{ .Values.postgresql.auth.database | quote }}
       PORT: {{ .Values.postgresql.service.port | int }}
       {{- else -}}
       HOST: {{ .Values.externalDatabase.host | quote }}

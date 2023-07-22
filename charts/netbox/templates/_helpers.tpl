@@ -105,7 +105,7 @@ Name of the key in Secret that contains the PostgreSQL password
 */}}
 {{- define "netbox.postgresql.secretKey" -}}
 {{- if .Values.postgresql.enabled -}}
-postgres-password
+password
 {{- else if .Values.externalDatabase.existingSecretName -}}
 {{ .Values.externalDatabase.existingSecretKey }}
 {{- else -}}
