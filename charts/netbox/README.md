@@ -204,7 +204,7 @@ The following table lists the configurable parameters for this chart and their d
 | `externalDatabase.username`                     | Username for external PostgreSQL                                    | `netbox`                                     |
 | `externalDatabase.password`                     | Password for external PostgreSQL (see also `existingSecret`)        | `""`                                         |
 | `externalDatabase.existingSecretName`           | Fetch password for external PostgreSQL from a different `Secret`    | `""`                                         |
-| `externalDatabase.existingSecretKey`            | Key to fetch the password in the above `Secret`                     | `postgres-password`                          |
+| `externalDatabase.existingSecretKey`            | Key to fetch the password in the above `Secret`                     | `postgresql-password`                        |
 | `externalDatabase.sslMode`                      | PostgreSQL client SSL Mode setting                                  | `prefer`                                     |
 | `externalDatabase.connMaxAge`                   | The lifetime of a database connection, as an integer of seconds     | `300`                                        |
 | `redis.enabled`                                 | Deploy Redis using bundled Bitnami Redis chart                      | `true`                                       |
