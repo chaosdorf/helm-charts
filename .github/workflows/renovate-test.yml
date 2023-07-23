@@ -43,7 +43,7 @@ jobs:
                       for (const dep of file.deps) {
                         for (const update of dep.updates) {
                           console.log(
-                            `  - "${dep.depName}" from ${dep.currentValue} to ${update.newVersion}`
+                            `  - ${dep.datasource} "${dep.depName}" from ${dep.currentVersion} to ${update.newVersion}`
                           );
                         }
                       }
