@@ -1,0 +1,59 @@
+name: Renovate
+on:
+  push:
+
+jobs:
+  renovate:
+    name: Dry Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.3
+      - name: Renovate Dry Run
+        uses: renovatebot/github-action@v39.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env-regex: "^(?:RENOVATE_\\w+|LOG_LEVEL|LOG_FORMAT)$"
+        env:
+          RENOVATE_DRY_RUN: lookup
+          RENOVATE_USERNAME: renovate-bot
+          RENOVATE_GIT_AUTHOR: renovate bot <renovate@example.org>
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          RENOVATE_BASE_BRANCHES: ${{ github.ref_name }}
+          RENOVATE_USE_BASE_BRANCH_CONFIG: merge
+          LOG_LEVEL: debug
+          LOG_FORMAT: json
+          RENOVATE_LOG_FILE: /tmp/renovate.log
+      - name: Show pending updates
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require("fs/promises");
+            const logFile = await fs.readFile("/tmp/renovate.log", { encoding: "utf-8" });
+            const lines = logFile.split("\n");
+            for (const line of lines) {
+              /** @type {{ msg: string, config: Record<string, any> }} */
+              const log = JSON.parse(line);
+              if (log.msg === "packageFiles with updates") {
+                for (const [manager, files] of Object.entries(log.config)) {
+                  console.log(`\n--- MANAGER ${manager}`);
+                  for (const file of files) {
+                    console.log(`In ${file.packageFile}:`);
+                    if (file.deps.some((d) => d.updates.length > 0)) {
+                      for (const dep of file.deps) {
+                        for (const update of dep.updates) {
+                          console.log(
+                            `  - ${dep.datasource} "${dep.depName}" from ${dep.currentVersion} to ${update.newVersion}`
+                          );
+                        }
+                      }
+                    } else {
+                      console.log("  No updates");
+                    }
+                  }
+                }
+                return;
+              }
+            }
+
+            console.log("No updates");
