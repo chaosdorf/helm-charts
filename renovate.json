@@ -3,5 +3,13 @@
   "extends": [
     "config:base",
     "regexManagers:helmChartYamlAppVersions"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": [
+        "helmv3"
+      ],
+      "bumpVersion": "patch"
+    }
   ]
 }
