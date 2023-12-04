@@ -25,7 +25,7 @@ jobs:
           LOG_FORMAT: json
           RENOVATE_LOG_FILE: /tmp/renovate.log
       - name: Show pending updates
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require("fs/promises");
