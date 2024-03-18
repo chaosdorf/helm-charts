@@ -1,6 +1,6 @@
 apiVersion: v2
 name: netbox
-version: 4.1.10
+version: 4.1.11
 # renovate: image=netboxcommunity/netbox
 appVersion: v3.3.2
 description: IP address management (IPAM) and data center infrastructure management (DCIM) tool
@@ -16,6 +16,6 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   condition: postgresql.enabled
 - name: redis
-  version: 17.17.1
+  version: 18.19.4
   repository: https://charts.bitnami.com/bitnami
   condition: redis.enabled
