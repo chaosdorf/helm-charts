@@ -48,7 +48,7 @@ jobs:
 
       - name: Create kind cluster
         if: github.event_name != 'pull_request' || steps.list-changed.outputs.changed == 'true'
-        uses: helm/kind-action@v1.8.0
+        uses: helm/kind-action@v1.10.0
 
       - name: Run chart-testing (install)
         if: github.event_name != 'pull_request' || steps.list-changed.outputs.changed == 'true'
